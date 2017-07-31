@@ -6,3 +6,6 @@ request.onreadystatechange = function () {
     document.getElementById("footer").innerHTML = request.responseText;
   }
 };
+
+// Add the code to open the AJAX request using the GET method and pointing to the 'footer.html' file.
+request.open('GET', 'footer.html');
