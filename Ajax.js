@@ -30,6 +30,8 @@ request.send();
 // 3. 
 // 4. 
 
+// SET UP THE NEW REQUEST OBJECT
+
 var xhr = new XMLHttpRequest();
 xhr.onreadystatechange = function() {
     if(xhr.readyState === 4) {
@@ -40,8 +42,33 @@ xhr.onreadystatechange = function() {
         // convert the JSON string to a JavaScript object.
         var employees = JSON.parse(xhr.responseText);
         // console.log(typeof employees);
+        var statusHTML = '<ul class="bulleted">';
+        // using this class because the css class is already built out.
+        for (var i=0; i<employees.length; i += 1) {
+            if (employees[i].inoffice === true) {
+                statusHTML += '<li class= "in">';
+            } else {
+                statusHTML += '<li class= "out">';
+            }
+          statusHTML += employees[i].name;
+          statusHTML += '</li>';
+        }
+      statusHTML += '</ul>';
+      // attaching the JavaScript to the html div
+      // the complete HTML goes inside a div with the ID of "employeeList"
+      document.getElementById('employeeList').innerHTML = statusHTML;
     }
 };
 
 xhr.open('GET', 'data/employees.json'); 
 xhr.send();
+
+// PROCESS THE JSON DATA
+
+// for each item in the JS object, create a new html list item.
+// 1. create a new HTML list item
+// 2. Check the 'inoffice' property
+// 3. Get the value for the 'name' property; insert it in the <li> tag
+// 4. close the <li> tag
+
+
