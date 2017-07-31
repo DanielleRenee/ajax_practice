@@ -31,3 +31,44 @@
   </div>
 </body>
 </html>
+
+
+<!-- converting to jQuery -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="css/main.css">
+  <title>AJAX with JavaScript</title>
+
+  <script src="http://code.jquery.com/jquery-1.11.1.min.js"</script>
+  <script>
+    function sendAJAX() {
+      // load the contents of the sidebar.html in the ajax div
+      $('#ajax').load('sidebar.html');
+      // AND then hide the contents of the button with the id of load 
+      $('#load').hide();
+    }
+  </script>
+
+
+
+</head>
+<body>
+  <div class="grid-container centered">
+    <div class="grid-100">
+      <div class="contained">
+        <div class="grid-100">
+          <h1>Bring on the AJAX</h1>
+          <ul id="ajax">
+
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+
