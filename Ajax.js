@@ -20,3 +20,28 @@ request.send();
 
 // JSON is transmitted over the web as plain text. To make it useful for a 
 // JavaScript program, you need to parse it, or convert it from a string to JavaScript.
+
+
+
+
+// follow the four stages of an AJAX request. 
+// 1. create a new xml http request object
+// 2. 
+// 3. 
+// 4. 
+
+var xhr = new XMLHttpRequest();
+xhr.onreadystatechange = function() {
+    if(xhr.readyState === 4) {
+        // two helpful console debugging views
+        // console.log(xhr.responseText);
+        // console.log(typeof xhr.responseText);
+
+        // convert the JSON string to a JavaScript object.
+        var employees = JSON.parse(xhr.responseText);
+        // console.log(typeof employees);
+    }
+};
+
+xhr.open('GET', 'data/employees.json'); 
+xhr.send();
